@@ -26,6 +26,8 @@ export const GithubProvider = ({children}) => {
             }
         );
 
+        console.log(`${GITHUB_URL}/search/users?${params}`);
+
         const result = await fetch(`${GITHUB_URL}/search/users?${params}`, {
                 headers: {
                     Authorization: `token ${GITHUB_TOKEN}`
@@ -33,6 +35,8 @@ export const GithubProvider = ({children}) => {
             }
         );
         const { items } = await result.json();
+
+        console.log(`token ${GITHUB_TOKEN}`);
 
         dispatch({
             type: 'GET_USERS',
